@@ -130,18 +130,22 @@ class RootViewController: UITableViewController, iCarouselDataSource, iCarouselD
     }
     
     // MARK: Table view
+    
+    override func tableView(tableView: UITableView, heightForFooterInSection section: Int) -> CGFloat {
+        return section == 0 ? 15.0 : 0.0
+    }
 
     override func tableView(tableView: UITableView, shouldHighlightRowAtIndexPath indexPath: NSIndexPath) -> Bool {
         return indexPath.section != 0
     }
     
     override func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
-        assert(indexPath.section == 1, "Wrong state")
+        assert(indexPath.section != 0, "Wrong state")
         tableView.deselectRowAtIndexPath(indexPath, animated: true) // Remove selection right away
         
-        if indexPath.row == 0 {
+        if indexPath.section == 1 {
             generateNumbers()
-        } else if indexPath.row == 1 {
+        } else if indexPath.section == 2 {
             copyNumbers()
         }
             

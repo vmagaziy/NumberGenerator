@@ -23,7 +23,7 @@
                                             <subviews>
                                                 <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" text="&lt;&lt;DO NOT LOCALIZE&gt;&gt;" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="whY-r8-UP3">
                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                                    <fontDescription key="fontDescription" type="system" pointSize="26"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="28"/>
                                                     <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
@@ -48,12 +48,16 @@
                                             </subviews>
                                         </tableViewCellContentView>
                                     </tableViewCell>
-                                    <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" textLabel="Opg-nS-YNf" style="IBUITableViewCellStyleDefault" id="6TB-qI-Tri">
+                                </cells>
+                            </tableViewSection>
+                            <tableViewSection id="sCu-Ar-qIG">
+                                <cells>
+                                    <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" textLabel="gu2-Dd-yFG" style="IBUITableViewCellStyleDefault" id="Iqe-vm-RQY">
                                         <autoresizingMask key="autoresizingMask"/>
-                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="6TB-qI-Tri" id="R3m-eX-1n6">
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="Iqe-vm-RQY" id="kAW-EU-ofV">
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" text="&lt;&lt;DO NOT LOCALIZE:COPY&gt;&gt;" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="Opg-nS-YNf">
+                                                <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" text="&lt;&lt;DO NOT LOCALIZE:GENERATE&gt;&gt;" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="gu2-Dd-yFG">
                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="16"/>
                                                     <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
@@ -72,8 +76,8 @@
                     </tableView>
                     <navigationItem key="navigationItem" title="&lt;&lt;DO NOT LOCALIZE&gt;&gt;" id="IXe-Ho-0CJ"/>
                     <connections>
-                        <outlet property="copyLabel" destination="Opg-nS-YNf" id="xMb-z0-51I"/>
-                        <outlet property="generateLabel" destination="6ST-GC-Szb" id="9ri-Fc-fj1"/>
+                        <outlet property="copyLabel" destination="gu2-Dd-yFG" id="Qly-YR-xTC"/>
+                        <outlet property="generateLabel" destination="6ST-GC-Szb" id="eYF-3j-KZN"/>
                         <outlet property="numbersLabel" destination="whY-r8-UP3" id="yyE-CI-yJR"/>
                     </connections>
                 </tableViewController>
