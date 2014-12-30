@@ -1,0 +1,505 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		592FE3C582895DE2D8393586 /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 9619973EE4AB8E6BF0F59FE3 /* libPods.a */; };
+		946B12511A51D90B009EEEF8 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 946B12501A51D90B009EEEF8 /* AppDelegate.swift */; };
+		946B12531A51D90B009EEEF8 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 946B12521A51D90B009EEEF8 /* ViewController.swift */; };
+		946B12561A51D90B009EEEF8 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 946B12541A51D90B009EEEF8 /* Main.storyboard */; };
+		946B12581A51D90B009EEEF8 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 946B12571A51D90B009EEEF8 /* Images.xcassets */; };
+		946B125B1A51D90B009EEEF8 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 946B12591A51D90B009EEEF8 /* LaunchScreen.xib */; };
+		946B12671A51D90B009EEEF8 /* RandomNumberGeneratorTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 946B12661A51D90B009EEEF8 /* RandomNumberGeneratorTests.swift */; };
+		946B12741A52ABFA009EEEF8 /* RandomNumberGenerator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 946B12731A52ABFA009EEEF8 /* RandomNumberGenerator.swift */; };
+		947354D11A52F97A005FB16E /* RandomNumberGenerator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 946B12731A52ABFA009EEEF8 /* RandomNumberGenerator.swift */; };
+		94E6C26F1A52EE740098CCF8 /* AboutViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94E6C26E1A52EE740098CCF8 /* AboutViewController.swift */; };
+		94E6C2711A52EFE40098CCF8 /* UIColor+ApplicationSpecific.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94E6C2701A52EFE40098CCF8 /* UIColor+ApplicationSpecific.swift */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		946B12611A51D90B009EEEF8 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 946B12431A51D90B009EEEF8 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 946B124A1A51D90B009EEEF8;
+			remoteInfo = NumberGenerator;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		85FC0AAA5E9F64D19E095B84 /* Pods.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.release.xcconfig; path = "Pods/Target Support Files/Pods/Pods.release.xcconfig"; sourceTree = "<group>"; };
+		946B124B1A51D90B009EEEF8 /* NumberGenerator.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = NumberGenerator.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		946B124F1A51D90B009EEEF8 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		946B12501A51D90B009EEEF8 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		946B12521A51D90B009EEEF8 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		946B12551A51D90B009EEEF8 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		946B12571A51D90B009EEEF8 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
+		946B125A1A51D90B009EEEF8 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/LaunchScreen.xib; sourceTree = "<group>"; };
+		946B12601A51D90B009EEEF8 /* NumberGeneratorTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = NumberGeneratorTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		946B12651A51D90B009EEEF8 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		946B12661A51D90B009EEEF8 /* RandomNumberGeneratorTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RandomNumberGeneratorTests.swift; sourceTree = "<group>"; };
+		946B12721A51E0C4009EEEF8 /* NumberGenerator.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = NumberGenerator.h; sourceTree = "<group>"; };
+		946B12731A52ABFA009EEEF8 /* RandomNumberGenerator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RandomNumberGenerator.swift; sourceTree = "<group>"; };
+		94E6C26E1A52EE740098CCF8 /* AboutViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AboutViewController.swift; sourceTree = "<group>"; };
+		94E6C2701A52EFE40098CCF8 /* UIColor+ApplicationSpecific.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIColor+ApplicationSpecific.swift"; sourceTree = "<group>"; };
+		9619973EE4AB8E6BF0F59FE3 /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
+		EAC4BB16233C4B3179BCFE03 /* Pods.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.debug.xcconfig; path = "Pods/Target Support Files/Pods/Pods.debug.xcconfig"; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		946B12481A51D90B009EEEF8 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				592FE3C582895DE2D8393586 /* libPods.a in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		946B125D1A51D90B009EEEF8 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		946B12421A51D90B009EEEF8 = {
+			isa = PBXGroup;
+			children = (
+				946B124D1A51D90B009EEEF8 /* NumberGenerator */,
+				946B12631A51D90B009EEEF8 /* NumberGeneratorTests */,
+				946B124C1A51D90B009EEEF8 /* Products */,
+				A75A30D9F1BF8C50EBC2860C /* Pods */,
+				AEA16F5EBD34BFC4E2CF5450 /* Frameworks */,
+			);
+			sourceTree = "<group>";
+		};
+		946B124C1A51D90B009EEEF8 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				946B124B1A51D90B009EEEF8 /* NumberGenerator.app */,
+				946B12601A51D90B009EEEF8 /* NumberGeneratorTests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		946B124D1A51D90B009EEEF8 /* NumberGenerator */ = {
+			isa = PBXGroup;
+			children = (
+				94E6C2701A52EFE40098CCF8 /* UIColor+ApplicationSpecific.swift */,
+				946B12501A51D90B009EEEF8 /* AppDelegate.swift */,
+				94E6C26E1A52EE740098CCF8 /* AboutViewController.swift */,
+				946B12521A51D90B009EEEF8 /* ViewController.swift */,
+				946B12731A52ABFA009EEEF8 /* RandomNumberGenerator.swift */,
+				946B12541A51D90B009EEEF8 /* Main.storyboard */,
+				946B12571A51D90B009EEEF8 /* Images.xcassets */,
+				946B12591A51D90B009EEEF8 /* LaunchScreen.xib */,
+				946B12721A51E0C4009EEEF8 /* NumberGenerator.h */,
+				946B124E1A51D90B009EEEF8 /* Supporting Files */,
+			);
+			path = NumberGenerator;
+			sourceTree = "<group>";
+		};
+		946B124E1A51D90B009EEEF8 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				946B124F1A51D90B009EEEF8 /* Info.plist */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		946B12631A51D90B009EEEF8 /* NumberGeneratorTests */ = {
+			isa = PBXGroup;
+			children = (
+				946B12661A51D90B009EEEF8 /* RandomNumberGeneratorTests.swift */,
+				946B12641A51D90B009EEEF8 /* Supporting Files */,
+			);
+			path = NumberGeneratorTests;
+			sourceTree = "<group>";
+		};
+		946B12641A51D90B009EEEF8 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				946B12651A51D90B009EEEF8 /* Info.plist */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		A75A30D9F1BF8C50EBC2860C /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				EAC4BB16233C4B3179BCFE03 /* Pods.debug.xcconfig */,
+				85FC0AAA5E9F64D19E095B84 /* Pods.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
+		AEA16F5EBD34BFC4E2CF5450 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				9619973EE4AB8E6BF0F59FE3 /* libPods.a */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		946B124A1A51D90B009EEEF8 /* NumberGenerator */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 946B126A1A51D90B009EEEF8 /* Build configuration list for PBXNativeTarget "NumberGenerator" */;
+			buildPhases = (
+				4D997D15574EB6CED81E91F1 /* Check Pods Manifest.lock */,
+				946B12471A51D90B009EEEF8 /* Sources */,
+				946B12481A51D90B009EEEF8 /* Frameworks */,
+				946B12491A51D90B009EEEF8 /* Resources */,
+				5AB1872DF12139B0F5A0DEE9 /* Copy Pods Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = NumberGenerator;
+			productName = NumberGenerator;
+			productReference = 946B124B1A51D90B009EEEF8 /* NumberGenerator.app */;
+			productType = "com.apple.product-type.application";
+		};
+		946B125F1A51D90B009EEEF8 /* NumberGeneratorTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 946B126D1A51D90B009EEEF8 /* Build configuration list for PBXNativeTarget "NumberGeneratorTests" */;
+			buildPhases = (
+				946B125C1A51D90B009EEEF8 /* Sources */,
+				946B125D1A51D90B009EEEF8 /* Frameworks */,
+				946B125E1A51D90B009EEEF8 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				946B12621A51D90B009EEEF8 /* PBXTargetDependency */,
+			);
+			name = NumberGeneratorTests;
+			productName = NumberGeneratorTests;
+			productReference = 946B12601A51D90B009EEEF8 /* NumberGeneratorTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		946B12431A51D90B009EEEF8 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastUpgradeCheck = 0610;
+				ORGANIZATIONNAME = "Vladimir Magaziy";
+				TargetAttributes = {
+					946B124A1A51D90B009EEEF8 = {
+						CreatedOnToolsVersion = 6.1.1;
+					};
+					946B125F1A51D90B009EEEF8 = {
+						CreatedOnToolsVersion = 6.1.1;
+						TestTargetID = 946B124A1A51D90B009EEEF8;
+					};
+				};
+			};
+			buildConfigurationList = 946B12461A51D90B009EEEF8 /* Build configuration list for PBXProject "NumberGenerator" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = 946B12421A51D90B009EEEF8;
+			productRefGroup = 946B124C1A51D90B009EEEF8 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				946B124A1A51D90B009EEEF8 /* NumberGenerator */,
+				946B125F1A51D90B009EEEF8 /* NumberGeneratorTests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		946B12491A51D90B009EEEF8 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				946B12561A51D90B009EEEF8 /* Main.storyboard in Resources */,
+				946B125B1A51D90B009EEEF8 /* LaunchScreen.xib in Resources */,
+				946B12581A51D90B009EEEF8 /* Images.xcassets in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		946B125E1A51D90B009EEEF8 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		4D997D15574EB6CED81E91F1 /* Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+		5AB1872DF12139B0F5A0DEE9 /* Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods/Pods-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		946B12471A51D90B009EEEF8 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				94E6C2711A52EFE40098CCF8 /* UIColor+ApplicationSpecific.swift in Sources */,
+				946B12531A51D90B009EEEF8 /* ViewController.swift in Sources */,
+				946B12511A51D90B009EEEF8 /* AppDelegate.swift in Sources */,
+				94E6C26F1A52EE740098CCF8 /* AboutViewController.swift in Sources */,
+				946B12741A52ABFA009EEEF8 /* RandomNumberGenerator.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		946B125C1A51D90B009EEEF8 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				946B12671A51D90B009EEEF8 /* RandomNumberGeneratorTests.swift in Sources */,
+				947354D11A52F97A005FB16E /* RandomNumberGenerator.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		946B12621A51D90B009EEEF8 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 946B124A1A51D90B009EEEF8 /* NumberGenerator */;
+			targetProxy = 946B12611A51D90B009EEEF8 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		946B12541A51D90B009EEEF8 /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				946B12551A51D90B009EEEF8 /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+		946B12591A51D90B009EEEF8 /* LaunchScreen.xib */ = {
+			isa = PBXVariantGroup;
+			children = (
+				946B125A1A51D90B009EEEF8 /* Base */,
+			);
+			name = LaunchScreen.xib;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		946B12681A51D90B009EEEF8 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.1;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		946B12691A51D90B009EEEF8 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = YES;
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.1;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				SDKROOT = iphoneos;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		946B126B1A51D90B009EEEF8 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = EAC4BB16233C4B3179BCFE03 /* Pods.debug.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				INFOPLIST_FILE = NumberGenerator/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = $SRCROOT/NumberGenerator/NumberGenerator.h;
+			};
+			name = Debug;
+		};
+		946B126C1A51D90B009EEEF8 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 85FC0AAA5E9F64D19E095B84 /* Pods.release.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				INFOPLIST_FILE = NumberGenerator/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = $SRCROOT/NumberGenerator/NumberGenerator.h;
+			};
+			name = Release;
+		};
+		946B126E1A51D90B009EEEF8 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(SDKROOT)/Developer/Library/Frameworks",
+					"$(inherited)",
+				);
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				INFOPLIST_FILE = NumberGeneratorTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/NumberGenerator.app/NumberGenerator";
+			};
+			name = Debug;
+		};
+		946B126F1A51D90B009EEEF8 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(SDKROOT)/Developer/Library/Frameworks",
+					"$(inherited)",
+				);
+				INFOPLIST_FILE = NumberGeneratorTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/NumberGenerator.app/NumberGenerator";
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		946B12461A51D90B009EEEF8 /* Build configuration list for PBXProject "NumberGenerator" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				946B12681A51D90B009EEEF8 /* Debug */,
+				946B12691A51D90B009EEEF8 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		946B126A1A51D90B009EEEF8 /* Build configuration list for PBXNativeTarget "NumberGenerator" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				946B126B1A51D90B009EEEF8 /* Debug */,
+				946B126C1A51D90B009EEEF8 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		946B126D1A51D90B009EEEF8 /* Build configuration list for PBXNativeTarget "NumberGeneratorTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				946B126E1A51D90B009EEEF8 /* Debug */,
+				946B126F1A51D90B009EEEF8 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 946B12431A51D90B009EEEF8 /* Project object */;
+}
