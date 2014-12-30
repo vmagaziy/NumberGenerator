@@ -136,7 +136,15 @@ class RootViewController: UITableViewController, iCarouselDataSource, iCarouselD
     }
 
     override func tableView(tableView: UITableView, shouldHighlightRowAtIndexPath indexPath: NSIndexPath) -> Bool {
-        return indexPath.section != 0
+        if (indexPath.section == 0) {
+            return false
+        }
+        
+        if (indexPath.section == 2) {
+            return randomNumbers.count != 0
+        }
+        
+        return true
     }
     
     override func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
