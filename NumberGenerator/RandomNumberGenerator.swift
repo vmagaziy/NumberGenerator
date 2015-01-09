@@ -3,12 +3,24 @@
 import Foundation
 
 class RandomNumberGenerator {
-    class func generateWithCount(count: UInt, max: UInt, min: UInt) -> [UInt] {
+    class func generateWithCount(count: UInt, max: UInt, min: UInt, allowDuplicates: Bool) -> [UInt] {
         assert(count > 0 && max > min, "Invalid parameters")
+        assert(allowDuplicates || count < max - min, "Invalid parameters")
         var randomNumbers: [UInt] = []
-        for i in 0...count - 1 {
-            var number = UInt(arc4random_uniform(UInt32(max - min))) + min;
-            randomNumbers.append(number)
+        
+        var numbersSet: NSMutableSet!
+        if !allowDuplicates { 
+            numbersSet = NSMutableSet(capacity: Int(count))
+        }
+        
+        while (UInt(randomNumbers.count) != count) {
+            var randomNumber = UInt(arc4random_uniform(UInt32(max - min))) + min;
+            if !allowDuplicates && numbersSet.containsObject(randomNumber) {
+                continue
+            }
+            
+            randomNumbers.append(randomNumber)
+            numbersSet?.addObject(randomNumber)
         }
         
         return randomNumbers

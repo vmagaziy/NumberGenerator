@@ -7,6 +7,7 @@ class RootViewController: UITableViewController, iCarouselDataSource, iCarouselD
     let numbersCount: UInt = 5
     let animationDuration: NSTimeInterval = 0.2
     let animationDelay: NSTimeInterval = 0.1
+    let nextIterationDelay: NSTimeInterval = 0.35
     
     var carousel: iCarousel!
     var activityIndicator: UIActivityIndicatorView!
@@ -79,7 +80,12 @@ class RootViewController: UITableViewController, iCarouselDataSource, iCarouselD
     // MARK: Carousel
     
     func numberOfItemsInCarousel(carousel: iCarousel!) -> Int {
-        return Int(maxNumber)
+        var numberOfItems = Int(maxNumber)
+        if currentNumberIndex > 0 {
+            numberOfItems -= currentNumberIndex
+        }
+        
+        return numberOfItems
     }
     
     func carousel(carousel: iCarousel!, viewForItemAtIndex index: Int, var reusingView view: UIView!) -> UIView! {
@@ -105,8 +111,24 @@ class RootViewController: UITableViewController, iCarouselDataSource, iCarouselD
             label = view.viewWithTag(1) as UILabel!
         }
         
+        var selected = false
+        var currentIndex = currentNumberIndex
+        if carousel.scrolling {
+            currentIndex -= 1
+        }
+        
+        if currentIndex >= 0 {
+            for i in 0...currentIndex {
+                if (Int(randomNumbers[i]) == index + 1) {
+                    selected = true
+                    break
+                }
+            }
+        }
+        
         view.backgroundColor = index % 2 == 0 ? UIColor.brandDarkColor() : UIColor.brandLightColor()
         label.textColor = index % 2 == 0 ? UIColor.brandLightColor() : UIColor.brandDarkColor()
+        view.alpha = selected ? 0.5 : 1.0
         
         label.text = "\(index + 1)" // Set item label
         
@@ -124,8 +146,17 @@ class RootViewController: UITableViewController, iCarouselDataSource, iCarouselD
     }
     
     func carouselDidEndScrollingAnimation(carousel: iCarousel!) {
+        if currentNumberIndex >= 0 {
+            let number = randomNumbers[currentNumberIndex]
+            carousel.reloadItemAtIndex(Int(number) - 1, animated: true)
+        }
+        
         if randomNumbers.count != 0 {
-            visualizeGeneration()
+            NSTimer.scheduledTimerWithTimeInterval(nextIterationDelay,
+                                                   target: self,
+                                                 selector: Selector("visualizeGeneration"),
+                                                 userInfo: nil,
+                                                  repeats: false)
         }
     }
     
@@ -165,8 +196,9 @@ class RootViewController: UITableViewController, iCarouselDataSource, iCarouselD
         tableView.userInteractionEnabled = false // Avoid further interactions
         activityIndicator.startAnimating()
         
-        randomNumbers = RandomNumberGenerator.generateWithCount(numbersCount, max:maxNumber, min:1)
+        randomNumbers = RandomNumberGenerator.generateWithCount(numbersCount, max:maxNumber, min:1, allowDuplicates: false)
         currentNumberIndex = -1
+        carousel.reloadData()
         
         visualizeGeneration()
     }
@@ -238,7 +270,7 @@ class RootViewController: UITableViewController, iCarouselDataSource, iCarouselD
         let number = randomNumbers[currentNumberIndex]
         let duration = animationDuration * NSTimeInterval(abs(currentNumber - number))
         currentNumber = number
-        carousel.scrollToItemAtIndex(currentNumber - 1, duration: 1.0);   
+        carousel.scrollToItemAtIndex(currentNumber - 1, duration: duration)
     }
 }
 
