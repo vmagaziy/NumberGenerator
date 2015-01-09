@@ -2,7 +2,7 @@
 
 import UIKit
 
-class RootViewController: UITableViewController, iCarouselDataSource, iCarouselDelegate {
+class RootViewController: UITableViewController {
     let maxNumber: UInt = 40
     let numbersCount: UInt = 5
     let animationDuration: NSTimeInterval = 0.2
@@ -28,8 +28,15 @@ class RootViewController: UITableViewController, iCarouselDataSource, iCarouselD
         setUpActivityIndicator()
     }
     
-    // MARK: Set up
-    
+    override func viewDidLayoutSubviews() {
+        super.viewDidLayoutSubviews()
+        centerActivityIndicator()
+    }
+}
+
+// MARK: Set up
+
+extension RootViewController {
     func setUpNavBar() {
         title = NSLocalizedString("Number Generator", comment: "")
         
@@ -44,7 +51,7 @@ class RootViewController: UITableViewController, iCarouselDataSource, iCarouselD
     
     func setUpCarouselView() {
         let screenHeight = CGRectGetHeight(UIScreen.mainScreen().bounds)
-        carousel = iCarousel(frame:CGRectMake(0.0, 0.0, 1.0, screenHeight / 3)) // will be expanded horizontally
+        carousel = iCarousel(frame:CGRect(x: 0.0, y: 0.0, width: 1.0, height: screenHeight / 3)) // will be expanded horizontally
         carousel.type = .InvertedWheel
         carousel.delegate = self
         carousel.dataSource = self
@@ -68,17 +75,22 @@ class RootViewController: UITableViewController, iCarouselDataSource, iCarouselD
         activityIndicator.color = UIColor.brandDarkColor()
         activityIndicator.sizeToFit()
         
-        let width = CGRectGetWidth(tableView.bounds)
         let height = 2 * CGRectGetHeight(activityIndicator.bounds)
-        let contentView = UIView(frame:CGRectMake(0.0, 0.0, width, height))
+        let contentView = UIView(frame:CGRect(x: 0.0, y: 0.0, width: 1.0, height: height)) // will be expanded horizontally
         contentView.addSubview(activityIndicator)
-        activityIndicator.center = contentView.center
         
         tableView.tableFooterView = contentView
     }
-
-    // MARK: Carousel
     
+    func centerActivityIndicator() {
+        var size = tableView.tableFooterView!.bounds.size
+        activityIndicator.center = CGPoint(x: size.width / 2, y: size.height / 2)
+    }
+}
+
+// MARK: Carousel
+
+extension RootViewController: iCarouselDataSource, iCarouselDelegate {
     func numberOfItemsInCarousel(carousel: iCarousel!) -> Int {
         var numberOfItems = Int(maxNumber)
         if currentNumberIndex > 0 {
@@ -98,7 +110,7 @@ class RootViewController: UITableViewController, iCarouselDataSource, iCarouselD
             view = UIView(frame:CGRectMake(0.0, 0.0, dimension, dimension))
             
             view.layer.cornerRadius = dimension / 2
-            view.layer.borderWidth = 1.0;
+            view.layer.borderWidth = 1.0
             view.layer.borderColor = UIColor.brandDarkColor().CGColor
             
             label = UILabel(frame:view.bounds)
@@ -159,9 +171,11 @@ class RootViewController: UITableViewController, iCarouselDataSource, iCarouselD
                                                   repeats: false)
         }
     }
-    
-    // MARK: Table view
-    
+}
+
+// MARK: Table view
+
+extension RootViewController : UITableViewDataSource, UITableViewDelegate {
     override func tableView(tableView: UITableView, heightForFooterInSection section: Int) -> CGFloat {
         return section == 0 ? 15.0 : 0.0
     }
@@ -189,9 +203,11 @@ class RootViewController: UITableViewController, iCarouselDataSource, iCarouselD
         }
             
     }
-    
-    // MARK: Action handlers
-    
+}
+
+// MARK: Action handlers
+
+extension RootViewController {
     func generateNumbers() {
         tableView.userInteractionEnabled = false // Avoid further interactions
         activityIndicator.startAnimating()
@@ -228,9 +244,11 @@ class RootViewController: UITableViewController, iCarouselDataSource, iCarouselD
     func dismissInfo() {
         dismissViewControllerAnimated(true, completion: nil)
     }
-    
-    // MARK: Implementation
-    
+}
+
+// MARK: Implementation
+
+extension RootViewController {
     func numbersText() -> String {
         var text = ""
         
@@ -269,9 +287,13 @@ class RootViewController: UITableViewController, iCarouselDataSource, iCarouselD
     
     func showNumber() {
         let number = randomNumbers[currentNumberIndex]
-        let duration = animationDuration * NSTimeInterval(abs(currentNumber - number))
+        var difference = abs(currentNumber - number)
+        if currentNumber == 0 {
+            difference = min(difference, abs(maxNumber - number))
+        }
+        
+        let duration = animationDuration * NSTimeInterval(difference)
         currentNumber = number
         carousel.scrollToItemAtIndex(currentNumber - 1, duration: duration)
     }
 }
-

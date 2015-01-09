@@ -27,4 +27,5 @@ Only [small](http://googletesting.blogspot.co.uk/2010/12/test-sizes.html) or uni
 ## What's next
 
 * Application icon is to be designed
+* Test cases are to be extended
 
