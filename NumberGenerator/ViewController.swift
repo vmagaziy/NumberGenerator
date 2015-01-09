@@ -220,7 +220,8 @@ class RootViewController: UITableViewController, iCarouselDataSource, iCarouselD
         var nc = UINavigationController(rootViewController: vc)
         nc.navigationBar.barStyle = .Black 
         nc.navigationBar.barTintColor = UIColor.brandDarkColor()
-            
+        
+        nc.modalTransitionStyle = .FlipHorizontal
         presentViewController(nc, animated: true, completion: nil)
     }
     
