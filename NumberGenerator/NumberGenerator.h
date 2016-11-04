@@ -1,3 +1,3 @@
-// Created by Vladimir Magaziy <vmagaziy@gmail.com>
+// Created by Volodymyr Magazii <vmagaziy@gmail.com>
 
-#import "iCarousel.h"
+#import <iCarousel/iCarousel.h>

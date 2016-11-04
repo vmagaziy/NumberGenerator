@@ -1,4 +1,4 @@
-// Created by Vladimir Magaziy <vmagaziy@gmail.com>
+// Created by Volodymyr Magazii <vmagaziy@gmail.com>
 
 import UIKit
 
@@ -8,7 +8,8 @@ class AboutViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        aboutLabel.text = NSLocalizedString("Created by Vladimir Magaziy", comment: "")
+        aboutLabel.numberOfLines = 0
+        aboutLabel.text = NSLocalizedString("Created by Volodymyr Magazii\n<vmagaziy@gmail.com>", comment: "")
         aboutLabel.textColor = UIColor.brandDarkColor()
     }
 }

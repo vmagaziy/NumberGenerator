@@ -7,7 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		592FE3C582895DE2D8393586 /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 9619973EE4AB8E6BF0F59FE3 /* libPods.a */; };
+		528EFF02D67BD11C3B1969ED /* Pods_NumberGenerator.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3135062ADB43D9FDB1A48FEF /* Pods_NumberGenerator.framework */; };
 		946B12511A51D90B009EEEF8 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 946B12501A51D90B009EEEF8 /* AppDelegate.swift */; };
 		946B12531A51D90B009EEEF8 /* RootViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 946B12521A51D90B009EEEF8 /* RootViewController.swift */; };
 		946B12561A51D90B009EEEF8 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 946B12541A51D90B009EEEF8 /* Main.storyboard */; };
@@ -31,7 +31,12 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		3135062ADB43D9FDB1A48FEF /* Pods_NumberGenerator.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_NumberGenerator.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		808CD53C5A268E9DA930782C /* Pods-NumberGenerator.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-NumberGenerator.debug.xcconfig"; path = "Pods/Target Support Files/Pods-NumberGenerator/Pods-NumberGenerator.debug.xcconfig"; sourceTree = "<group>"; };
 		85FC0AAA5E9F64D19E095B84 /* Pods.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.release.xcconfig; path = "Pods/Target Support Files/Pods/Pods.release.xcconfig"; sourceTree = "<group>"; };
+		8F27D4C6A9B8D5C083250D42 /* Pods-NumberGenerator.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-NumberGenerator.release.xcconfig"; path = "Pods/Target Support Files/Pods-NumberGenerator/Pods-NumberGenerator.release.xcconfig"; sourceTree = "<group>"; };
+		94223FF71DCD1CED000C1E5F /* README.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
+		94223FF81DCD1E9C000C1E5F /* Podfile */ = {isa = PBXFileReference; lastKnownFileType = text; path = Podfile; sourceTree = "<group>"; };
 		946B124B1A51D90B009EEEF8 /* NumberGenerator.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = NumberGenerator.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		946B124F1A51D90B009EEEF8 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		946B12501A51D90B009EEEF8 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -55,7 +60,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				592FE3C582895DE2D8393586 /* libPods.a in Frameworks */,
+				528EFF02D67BD11C3B1969ED /* Pods_NumberGenerator.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -72,6 +77,8 @@
 		946B12421A51D90B009EEEF8 = {
 			isa = PBXGroup;
 			children = (
+				94223FF71DCD1CED000C1E5F /* README.md */,
+				94223FF81DCD1E9C000C1E5F /* Podfile */,
 				946B124D1A51D90B009EEEF8 /* NumberGenerator */,
 				946B12631A51D90B009EEEF8 /* NumberGeneratorTests */,
 				946B124C1A51D90B009EEEF8 /* Products */,
@@ -136,6 +143,8 @@
 			children = (
 				EAC4BB16233C4B3179BCFE03 /* Pods.debug.xcconfig */,
 				85FC0AAA5E9F64D19E095B84 /* Pods.release.xcconfig */,
+				808CD53C5A268E9DA930782C /* Pods-NumberGenerator.debug.xcconfig */,
+				8F27D4C6A9B8D5C083250D42 /* Pods-NumberGenerator.release.xcconfig */,
 			);
 			name = Pods;
 			sourceTree = "<group>";
@@ -144,6 +153,7 @@
 			isa = PBXGroup;
 			children = (
 				9619973EE4AB8E6BF0F59FE3 /* libPods.a */,
+				3135062ADB43D9FDB1A48FEF /* Pods_NumberGenerator.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -155,11 +165,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 946B126A1A51D90B009EEEF8 /* Build configuration list for PBXNativeTarget "NumberGenerator" */;
 			buildPhases = (
-				4D997D15574EB6CED81E91F1 /* Check Pods Manifest.lock */,
+				4D997D15574EB6CED81E91F1 /* 📦 Check Pods Manifest.lock */,
 				946B12471A51D90B009EEEF8 /* Sources */,
 				946B12481A51D90B009EEEF8 /* Frameworks */,
 				946B12491A51D90B009EEEF8 /* Resources */,
-				5AB1872DF12139B0F5A0DEE9 /* Copy Pods Resources */,
+				5AB1872DF12139B0F5A0DEE9 /* 📦 Copy Pods Resources */,
+				D1BC4D1110248BFE24C15ECE /* 📦 Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -199,9 +210,11 @@
 				TargetAttributes = {
 					946B124A1A51D90B009EEEF8 = {
 						CreatedOnToolsVersion = 6.1.1;
+						LastSwiftMigration = 0810;
 					};
 					946B125F1A51D90B009EEEF8 = {
 						CreatedOnToolsVersion = 6.1.1;
+						LastSwiftMigration = 0810;
 						TestTargetID = 946B124A1A51D90B009EEEF8;
 					};
 				};
@@ -246,14 +259,14 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
-		4D997D15574EB6CED81E91F1 /* Check Pods Manifest.lock */ = {
+		4D997D15574EB6CED81E91F1 /* 📦 Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 			);
 			inputPaths = (
 			);
-			name = "Check Pods Manifest.lock";
+			name = "📦 Check Pods Manifest.lock";
 			outputPaths = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -261,19 +274,34 @@
 			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
 			showEnvVarsInLog = 0;
 		};
-		5AB1872DF12139B0F5A0DEE9 /* Copy Pods Resources */ = {
+		5AB1872DF12139B0F5A0DEE9 /* 📦 Copy Pods Resources */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 			);
 			inputPaths = (
 			);
-			name = "Copy Pods Resources";
+			name = "📦 Copy Pods Resources";
 			outputPaths = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods/Pods-resources.sh\"\n";
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-NumberGenerator/Pods-NumberGenerator-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		D1BC4D1110248BFE24C15ECE /* 📦 Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "📦 Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-NumberGenerator/Pods-NumberGenerator-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 /* End PBXShellScriptBuildPhase section */
@@ -411,27 +439,29 @@
 		};
 		946B126B1A51D90B009EEEF8 /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = EAC4BB16233C4B3179BCFE03 /* Pods.debug.xcconfig */;
+			baseConfigurationReference = 808CD53C5A268E9DA930782C /* Pods-NumberGenerator.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				INFOPLIST_FILE = NumberGenerator/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_OBJC_BRIDGING_HEADER = $SRCROOT/NumberGenerator/NumberGenerator.h;
+				SWIFT_INSTALL_OBJC_HEADER = NO;
+				SWIFT_VERSION = 3.0.1;
 			};
 			name = Debug;
 		};
 		946B126C1A51D90B009EEEF8 /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 85FC0AAA5E9F64D19E095B84 /* Pods.release.xcconfig */;
+			baseConfigurationReference = 8F27D4C6A9B8D5C083250D42 /* Pods-NumberGenerator.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				INFOPLIST_FILE = NumberGenerator/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_OBJC_BRIDGING_HEADER = $SRCROOT/NumberGenerator/NumberGenerator.h;
+				SWIFT_INSTALL_OBJC_HEADER = NO;
+				SWIFT_VERSION = 3.0.1;
 			};
 			name = Release;
 		};
@@ -450,6 +480,7 @@
 				INFOPLIST_FILE = NumberGeneratorTests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 3.0;
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/NumberGenerator.app/NumberGenerator";
 			};
 			name = Debug;
@@ -465,6 +496,7 @@
 				INFOPLIST_FILE = NumberGeneratorTests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 3.0;
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/NumberGenerator.app/NumberGenerator";
 			};
 			name = Release;

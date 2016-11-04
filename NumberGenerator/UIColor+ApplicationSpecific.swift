@@ -1,13 +1,13 @@
-// Created by Vladimir Magaziy <vmagaziy@gmail.com>
+// Created by Volodymyr Magazii <vmagaziy@gmail.com>
 
 import UIKit
 
 extension UIColor {
     class func brandDarkColor() -> UIColor {
-        return UIColor(red: 0.6, green: 0.76, blue: 0.22, alpha: 1.0)
+        return UIColor(red: 0.3, green: 0.55, blue: 0.95, alpha: 1.0)
     }
     
     class func brandLightColor() -> UIColor {
-        return UIColor.whiteColor()
+        return .white
     }    
 }

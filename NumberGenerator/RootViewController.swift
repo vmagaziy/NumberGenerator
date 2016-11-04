@@ -1,13 +1,14 @@
-// Created by Vladimir Magaziy <vmagaziy@gmail.com>
+// Created by Volodymyr Magazii <vmagaziy@gmail.com>
 
 import UIKit
+import iCarousel
 
 class RootViewController: UITableViewController {
-    let maxNumber: UInt = 40
-    let numbersCount: UInt = 5
-    let animationDuration: NSTimeInterval = 0.2
-    let animationDelay: NSTimeInterval = 0.1
-    let nextIterationDelay: NSTimeInterval = 0.35
+    let maxNumber: Int = 40
+    let numbersCount: Int = 5
+    let animationDuration: TimeInterval = 0.2
+    let animationDelay: TimeInterval = 0.1
+    let nextIterationDelay: TimeInterval = 0.35
     
     var carousel: iCarousel!
     var activityIndicator: UIActivityIndicatorView!
@@ -15,9 +16,9 @@ class RootViewController: UITableViewController {
     @IBOutlet var copyLabel: UILabel!
     @IBOutlet var numbersLabel: UILabel!
     
-    var randomNumbers: [UInt] = []
+    var randomNumbers: [Int] = []
     var currentNumberIndex: Int = -1
-    var currentNumber: UInt = 0
+    var currentNumber: Int = 0
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -40,22 +41,22 @@ extension RootViewController {
     func setUpNavBar() {
         title = NSLocalizedString("Number Generator", comment: "")
         
-        navigationController?.navigationBar.barStyle = .Black 
+        navigationController?.navigationBar.barStyle = .black 
         navigationController?.navigationBar.barTintColor = UIColor.brandDarkColor()
         
-        let infoButton = UIButton.buttonWithType(.InfoDark) as UIButton
-        infoButton.addTarget(self, action: "showInfo", forControlEvents: .TouchUpInside)
+        let infoButton = UIButton(type: .infoDark)
+        infoButton.addTarget(self, action: #selector(RootViewController.showInfo), for: .touchUpInside)
         infoButton.tintColor = UIColor.brandLightColor()
         navigationItem.rightBarButtonItem = UIBarButtonItem(customView: infoButton)
     }
     
     func setUpCarouselView() {
-        let screenHeight = CGRectGetHeight(UIScreen.mainScreen().bounds)
-        carousel = iCarousel(frame:CGRect(x: 0.0, y: 0.0, width: 1.0, height: screenHeight / 3)) // will be expanded horizontally
-        carousel.type = .InvertedWheel
+        let screenHeight = UIScreen.main.bounds.height
+        carousel = iCarousel(frame: CGRect(x: 0, y: 0, width: 1, height: screenHeight / 3)) // will be expanded horizontally
+        carousel.type = .invertedWheel
         carousel.delegate = self
         carousel.dataSource = self
-        carousel.userInteractionEnabled = false
+        carousel.isUserInteractionEnabled = false
         tableView.tableHeaderView = carousel
     }
     
@@ -75,7 +76,7 @@ extension RootViewController {
         activityIndicator.color = UIColor.brandDarkColor()
         activityIndicator.sizeToFit()
         
-        let height = 2 * CGRectGetHeight(activityIndicator.bounds)
+        let height = 2 * activityIndicator.bounds.height
         let contentView = UIView(frame:CGRect(x: 0.0, y: 0.0, width: 1.0, height: height)) // will be expanded horizontally
         contentView.addSubview(activityIndicator)
         
@@ -83,7 +84,7 @@ extension RootViewController {
     }
     
     func centerActivityIndicator() {
-        var size = tableView.tableFooterView!.bounds.size
+        let size = tableView.tableFooterView!.bounds.size
         activityIndicator.center = CGPoint(x: size.width / 2, y: size.height / 2)
     }
 }
@@ -91,7 +92,7 @@ extension RootViewController {
 // MARK: Carousel
 
 extension RootViewController: iCarouselDataSource, iCarouselDelegate {
-    func numberOfItemsInCarousel(carousel: iCarousel!) -> Int {
+    func numberOfItems(in carousel: iCarousel) -> Int {
         var numberOfItems = Int(maxNumber)
         if currentNumberIndex > 0 {
             numberOfItems -= currentNumberIndex
@@ -100,32 +101,33 @@ extension RootViewController: iCarouselDataSource, iCarouselDelegate {
         return numberOfItems
     }
     
-    func carousel(carousel: iCarousel!, viewForItemAtIndex index: Int, var reusingView view: UIView!) -> UIView! {
-        var label: UILabel! = nil
+    func carousel(_ carousel: iCarousel, viewForItemAt index: Int, reusing view: UIView?) -> UIView {
+        var view = view
+        var label: UILabel? = nil
         
         // Create a new view if no view is available for recycling,
         // otherwise get a reference to the label in the recycled view
-        if (view == nil) {
-            var dimension = CGRectGetHeight(carousel.bounds) / 2
-            view = UIView(frame:CGRectMake(0.0, 0.0, dimension, dimension))
-            
-            view.layer.cornerRadius = dimension / 2
-            view.layer.borderWidth = 1.0
-            view.layer.borderColor = UIColor.brandDarkColor().CGColor
-            
-            label = UILabel(frame:view.bounds)
-            label.textAlignment = .Center
-            label.backgroundColor = UIColor.clearColor()
-            label.font = label.font.fontWithSize(50)
-            label.tag = 1
-            view.addSubview(label)
+        if let view = view {
+            label = view.viewWithTag(1) as? UILabel
         } else {
-            label = view.viewWithTag(1) as UILabel!
+            let dimension = carousel.bounds.height / 2
+            view = UIView(frame: CGRect(x: 0, y: 0, width: dimension, height: dimension))
+            
+            view!.layer.cornerRadius = dimension / 2
+            view!.layer.borderWidth = 1.0
+            view!.layer.borderColor = UIColor.brandDarkColor().cgColor
+            
+            label = UILabel(frame: view!.bounds)
+            label!.textAlignment = .center
+            label!.backgroundColor = UIColor.clear
+            label!.font = label!.font.withSize(50)
+            label!.tag = 1
+            view!.addSubview(label!)
         }
         
         var selected = false
         var currentIndex = currentNumberIndex
-        if carousel.scrolling {
+        if carousel.isScrolling {
             currentIndex -= 1
         }
         
@@ -138,35 +140,35 @@ extension RootViewController: iCarouselDataSource, iCarouselDelegate {
             }
         }
         
-        view.backgroundColor = index % 2 == 0 ? UIColor.brandDarkColor() : UIColor.brandLightColor()
-        label.textColor = index % 2 == 0 ? UIColor.brandLightColor() : UIColor.brandDarkColor()
-        view.alpha = selected ? 0.5 : 1.0
+        view?.backgroundColor = index % 2 == 0 ? .brandDarkColor() : .brandLightColor()
+        label?.textColor = index % 2 == 0 ? .brandLightColor() : .brandDarkColor()
+        view?.alpha = selected ? 0.5 : 1.0
         
-        label.text = "\(index + 1)" // Set item label
+        label?.text = NumberFormatter.localizedString(from: NSNumber(value: index + 1), number: .none) // Set item label
         
-        return view
+        return view!
     }
     
-    func carousel(carousel: iCarousel!, valueForOption option: iCarouselOption, withDefault value: CGFloat) -> CGFloat {
-        if option == .Wrap {
+    func carousel(_ carousel: iCarousel, valueFor option: iCarouselOption, withDefault value: CGFloat) -> CGFloat {
+        if option == .wrap {
             return 1.0
-        } else if option == .Spacing {
+        } else if option == .spacing {
             return value * 1.1
         }
         
         return value
     }
     
-    func carouselDidEndScrollingAnimation(carousel: iCarousel!) {
+    func carouselDidEndScrollingAnimation(_ carousel: iCarousel) {
         if currentNumberIndex >= 0 {
             let number = randomNumbers[currentNumberIndex]
-            carousel.reloadItemAtIndex(Int(number) - 1, animated: true)
+            carousel.reloadItem(at: Int(number) - 1, animated: true)
         }
         
         if randomNumbers.count != 0 {
-            NSTimer.scheduledTimerWithTimeInterval(nextIterationDelay,
+            Timer.scheduledTimer(timeInterval: nextIterationDelay,
                                                    target: self,
-                                                 selector: Selector("visualizeGeneration"),
+                                                 selector: #selector(visualizeGeneration),
                                                  userInfo: nil,
                                                   repeats: false)
         }
@@ -175,12 +177,12 @@ extension RootViewController: iCarouselDataSource, iCarouselDelegate {
 
 // MARK: Table view
 
-extension RootViewController : UITableViewDataSource, UITableViewDelegate {
-    override func tableView(tableView: UITableView, heightForFooterInSection section: Int) -> CGFloat {
+extension RootViewController {
+    override func tableView(_ tableView: UITableView, heightForFooterInSection section: Int) -> CGFloat {
         return section == 0 ? 15.0 : 0.0
     }
 
-    override func tableView(tableView: UITableView, shouldHighlightRowAtIndexPath indexPath: NSIndexPath) -> Bool {
+    override func tableView(_ tableView: UITableView, shouldHighlightRowAt indexPath: IndexPath) -> Bool {
         if (indexPath.section == 0) {
             return false
         }
@@ -192,9 +194,9 @@ extension RootViewController : UITableViewDataSource, UITableViewDelegate {
         return true
     }
     
-    override func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
+    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         assert(indexPath.section != 0, "Wrong state")
-        tableView.deselectRowAtIndexPath(indexPath, animated: true) // Remove selection right away
+        tableView.deselectRow(at: indexPath, animated: true) // Remove selection right away
         
         if indexPath.section == 1 {
             generateNumbers()
@@ -209,10 +211,10 @@ extension RootViewController : UITableViewDataSource, UITableViewDelegate {
 
 extension RootViewController {
     func generateNumbers() {
-        tableView.userInteractionEnabled = false // Avoid further interactions
+        tableView.isUserInteractionEnabled = false // Avoid further interactions
         activityIndicator.startAnimating()
         
-        randomNumbers = RandomNumberGenerator.generateWithCount(numbersCount, max:maxNumber, min:1, allowDuplicates: false)
+        randomNumbers = RandomNumberGenerator.generateWithCount(numbersCount, max: maxNumber, min: 1)
         currentNumberIndex = -1
         carousel.reloadData()
         
@@ -220,29 +222,29 @@ extension RootViewController {
     }
     
     func copyNumbers() {
-        let pasteboard = UIPasteboard.generalPasteboard()
+        let pasteboard = UIPasteboard.general
         pasteboard.string = numbersText()
     }
     
     func showInfo() {
         let storyboard = UIStoryboard(name: "Main", bundle: nil)
-        let vc = storyboard.instantiateViewControllerWithIdentifier("AboutViewController") as UIViewController
+        let vc = storyboard.instantiateViewController(withIdentifier: "AboutViewController") as UIViewController
         
         vc.title = NSLocalizedString("About", comment: "")
-        let barButtonItem = UIBarButtonItem(barButtonSystemItem: .Done, target: self, action: "dismissInfo")
+        let barButtonItem = UIBarButtonItem(barButtonSystemItem: .done, target: self, action: #selector(RootViewController.dismissInfo))
         barButtonItem.tintColor = UIColor.brandLightColor()
         vc.navigationItem.rightBarButtonItem = barButtonItem
         
-        var nc = UINavigationController(rootViewController: vc)
-        nc.navigationBar.barStyle = .Black 
+        let nc = UINavigationController(rootViewController: vc)
+        nc.navigationBar.barStyle = .black 
         nc.navigationBar.barTintColor = UIColor.brandDarkColor()
         
-        nc.modalTransitionStyle = .FlipHorizontal
-        presentViewController(nc, animated: true, completion: nil)
+        nc.modalTransitionStyle = .flipHorizontal
+        present(nc, animated: true, completion: nil)
     }
     
     func dismissInfo() {
-        dismissViewControllerAnimated(true, completion: nil)
+        dismiss(animated: true, completion: nil)
     }
 }
 
@@ -259,7 +261,7 @@ extension RootViewController {
                 text += "\(randomNumbers[i])"
             }
             
-            if (i != numbersCount - 1) {
+            if (i != Int(numbersCount) - 1) {
                 text += " "
             }
         }
@@ -270,19 +272,19 @@ extension RootViewController {
     func visualizeGeneration() {
         numbersLabel.text = numbersText()
         
-        if (currentNumberIndex == Int(numbersCount) - 1) {
-            tableView.userInteractionEnabled = true // Renable interactions
+        if (currentNumberIndex == numbersCount - 1) {
+            tableView.isUserInteractionEnabled = true // Renable interactions
             activityIndicator.stopAnimating()
             return
         }
         
-        currentNumberIndex++
+        currentNumberIndex += 1
         
-        NSTimer.scheduledTimerWithTimeInterval(animationDelay,
-                                               target: self,
-                                             selector: Selector("showNumber"),
-                                             userInfo: nil,
-                                              repeats: false)
+        Timer.scheduledTimer(timeInterval: animationDelay,
+                                   target: self,
+                                 selector: #selector(showNumber),
+                                 userInfo: nil,
+                                  repeats: false)
     }
     
     func showNumber() {
@@ -292,8 +294,8 @@ extension RootViewController {
             difference = min(difference, abs(maxNumber - number))
         }
         
-        let duration = animationDuration * NSTimeInterval(difference)
+        let duration = animationDuration * TimeInterval(difference)
         currentNumber = number
-        carousel.scrollToItemAtIndex(currentNumber - 1, duration: duration)
+        carousel.scrollToItem(at: currentNumber - 1, duration: duration)
     }
 }

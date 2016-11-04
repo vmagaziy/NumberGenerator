@@ -1,14 +1,13 @@
-// Created by Vladimir Magaziy <vmagaziy@gmail.com>
+// Created by Volodymyr Magazii <vmagaziy@gmail.com>
 
 import UIKit
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
-
     var window: UIWindow?
 
-    func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool {
-        window?.backgroundColor = UIColor.brandDarkColor()
+    func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
+        window?.backgroundColor = .brandDarkColor()
         return true
     }
 }

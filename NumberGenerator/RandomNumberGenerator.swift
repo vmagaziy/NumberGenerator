@@ -1,28 +1,26 @@
-// Created by Vladimir Magaziy <vmagaziy@gmail.com>
+// Created by Volodymyr Magazii <vmagaziy@gmail.com>
 
 import Foundation
 
 class RandomNumberGenerator {
-    class func generateWithCount(count: UInt, max: UInt, min: UInt, allowDuplicates: Bool) -> [UInt] {
+    class func generateWithCount(_ count: Int, max: Int = Int.max, min: Int = 0, allowDuplicates: Bool = false) -> [Int] {
         assert(count > 0 && max > min, "Invalid parameters")
         assert(allowDuplicates || count < max - min, "Invalid parameters")
-        var randomNumbers: [UInt] = []
+        var numbers: [Int] = []
+        var numbersCount = 0
         
-        var numbersSet: NSMutableSet!
-        if !allowDuplicates { 
-            numbersSet = NSMutableSet(capacity: Int(count))
-        }
-        
-        while (UInt(randomNumbers.count) != count) {
-            var randomNumber = UInt(arc4random_uniform(UInt32(max - min))) + min;
-            if !allowDuplicates && numbersSet.containsObject(randomNumber) {
+        while (numbersCount != count) {
+            let number = Int(arc4random_uniform(UInt32(max - min))) + min
+            // skip dups in requested
+            // todo: use a set to check dups in O(1)
+            if !allowDuplicates && numbers.contains(number) {
                 continue
             }
             
-            randomNumbers.append(randomNumber)
-            numbersSet?.addObject(randomNumber)
+            numbers.append(number)
+            numbersCount += 1
         }
         
-        return randomNumbers
+        return numbers
     }
 }
