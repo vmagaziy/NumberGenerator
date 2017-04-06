@@ -1,97 +1,72 @@
-// Created by Volodymyr Magazii <vmagaziy@gmail.com>
-
 import UIKit
 import iCarousel
 
-class RootViewController: UITableViewController {
-    let maxNumber: Int = 40
-    let numbersCount: Int = 5
-    let animationDuration: TimeInterval = 0.2
-    let animationDelay: TimeInterval = 0.1
-    let nextIterationDelay: TimeInterval = 0.35
+@objc class RootViewController: UITableViewController, iCarouselDataSource, iCarouselDelegate {
+    private let maxNumber = 40
+    private let numbersCount = 5
+    private let animationDuration: TimeInterval = 0.2
+    private let animationDelay: TimeInterval = 0.1
+    private let nextIterationDelay: TimeInterval = 0.35
     
-    var carousel: iCarousel!
-    var activityIndicator: UIActivityIndicatorView!
-    @IBOutlet var generateLabel: UILabel!
-    @IBOutlet var copyLabel: UILabel!
-    @IBOutlet var numbersLabel: UILabel!
+    @IBOutlet var activityIndicator: UIActivityIndicatorView?
+    @IBOutlet var carousel: iCarousel?
+    @IBOutlet var generateLabel: UILabel?
+    @IBOutlet var copyLabel: UILabel?
+    @IBOutlet var numbersLabel: UILabel?
     
-    var randomNumbers: [Int] = []
-    var currentNumberIndex: Int = -1
-    var currentNumber: Int = 0
+    private var randomNumbers: [Int] = []
+    private var currentNumberIndex = -1
+    private var currentNumber = 0
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
         setUpNavBar()
-        setUpCarouselView()
+        setUpCarousel()
         setUpLabels()
         setUpActivityIndicator()
     }
+
+    // MARK: Set up
     
-    override func viewDidLayoutSubviews() {
-        super.viewDidLayoutSubviews()
-        centerActivityIndicator()
-    }
-}
-
-// MARK: Set up
-
-extension RootViewController {
-    func setUpNavBar() {
+    private func setUpNavBar() {
         title = NSLocalizedString("Number Generator", comment: "")
         
         navigationController?.navigationBar.barStyle = .black 
-        navigationController?.navigationBar.barTintColor = UIColor.brandDarkColor()
+        navigationController?.navigationBar.barTintColor = .brandDarkColor
         
         let infoButton = UIButton(type: .infoDark)
         infoButton.addTarget(self, action: #selector(RootViewController.showInfo), for: .touchUpInside)
-        infoButton.tintColor = UIColor.brandLightColor()
+        infoButton.tintColor = .brandLightColor
         navigationItem.rightBarButtonItem = UIBarButtonItem(customView: infoButton)
     }
     
-    func setUpCarouselView() {
-        let screenHeight = UIScreen.main.bounds.height
-        carousel = iCarousel(frame: CGRect(x: 0, y: 0, width: 1, height: screenHeight / 3)) // will be expanded horizontally
-        carousel.type = .invertedWheel
-        carousel.delegate = self
-        carousel.dataSource = self
-        carousel.isUserInteractionEnabled = false
-        tableView.tableHeaderView = carousel
+    private func setUpCarousel() {
+        let height = view.bounds.height
+        carousel?.frame = CGRect(x: 0, y: 0, width: 0, height: height / 3)
+        carousel?.type = .invertedWheel
+        carousel?.isUserInteractionEnabled = false
+        carousel?.dataSource = self
+        carousel?.delegate = self
     }
     
-    func setUpLabels() {
-        generateLabel.text = NSLocalizedString("Generate", comment: "")
-        generateLabel.textColor = UIColor.brandDarkColor()
+    private func setUpLabels() {
+        generateLabel?.text = NSLocalizedString("Generate", comment: "")
+        generateLabel?.textColor = .brandDarkColor
         
-        copyLabel.text = NSLocalizedString("Copy", comment: "")
-        copyLabel.textColor = UIColor.brandDarkColor()
+        copyLabel?.text = NSLocalizedString("Copy", comment: "")
+        copyLabel?.textColor = .brandDarkColor
         
-        numbersLabel.text = numbersText()
-        numbersLabel.textColor = UIColor.brandDarkColor()
+        numbersLabel?.text = numbersText
+        numbersLabel?.textColor = .brandDarkColor
     }
     
-    func setUpActivityIndicator() {
-        activityIndicator = UIActivityIndicatorView()
-        activityIndicator.color = UIColor.brandDarkColor()
-        activityIndicator.sizeToFit()
-        
-        let height = 2 * activityIndicator.bounds.height
-        let contentView = UIView(frame:CGRect(x: 0.0, y: 0.0, width: 1.0, height: height)) // will be expanded horizontally
-        contentView.addSubview(activityIndicator)
-        
-        tableView.tableFooterView = contentView
+    private func setUpActivityIndicator() {
+        activityIndicator?.color = .brandDarkColor
     }
-    
-    func centerActivityIndicator() {
-        let size = tableView.tableFooterView!.bounds.size
-        activityIndicator.center = CGPoint(x: size.width / 2, y: size.height / 2)
-    }
-}
 
-// MARK: Carousel
+    // MARK: iCarouselDataSource
 
-extension RootViewController: iCarouselDataSource, iCarouselDelegate {
     func numberOfItems(in carousel: iCarousel) -> Int {
         var numberOfItems = Int(maxNumber)
         if currentNumberIndex > 0 {
@@ -115,7 +90,7 @@ extension RootViewController: iCarouselDataSource, iCarouselDelegate {
             
             view!.layer.cornerRadius = dimension / 2
             view!.layer.borderWidth = 1.0
-            view!.layer.borderColor = UIColor.brandDarkColor().cgColor
+            view!.layer.borderColor = UIColor.brandDarkColor.cgColor
             
             label = UILabel(frame: view!.bounds)
             label!.textAlignment = .center
@@ -140,14 +115,16 @@ extension RootViewController: iCarouselDataSource, iCarouselDelegate {
             }
         }
         
-        view?.backgroundColor = index % 2 == 0 ? .brandDarkColor() : .brandLightColor()
-        label?.textColor = index % 2 == 0 ? .brandLightColor() : .brandDarkColor()
+        view?.backgroundColor = index % 2 == 0 ? .brandDarkColor : .brandLightColor
+        label?.textColor = index % 2 == 0 ? .brandLightColor : .brandDarkColor
         view?.alpha = selected ? 0.5 : 1.0
         
         label?.text = NumberFormatter.localizedString(from: NSNumber(value: index + 1), number: .none) // Set item label
         
         return view!
     }
+    
+    // MARK: iCarouselDelegate
     
     func carousel(_ carousel: iCarousel, valueFor option: iCarouselOption, withDefault value: CGFloat) -> CGFloat {
         if option == .wrap {
@@ -173,11 +150,9 @@ extension RootViewController: iCarouselDataSource, iCarouselDelegate {
                                                   repeats: false)
         }
     }
-}
 
-// MARK: Table view
+    // MARK: Table view
 
-extension RootViewController {
     override func tableView(_ tableView: UITableView, heightForFooterInSection section: Int) -> CGFloat {
         return section == 0 ? 15.0 : 0.0
     }
@@ -205,56 +180,57 @@ extension RootViewController {
         }
             
     }
-}
 
-// MARK: Action handlers
+    // MARK: Action handlers
 
-extension RootViewController {
-    func generateNumbers() {
+    @objc private func generateNumbers() {
         tableView.isUserInteractionEnabled = false // Avoid further interactions
-        activityIndicator.startAnimating()
         
-        randomNumbers = RandomNumberGenerator.generateWithCount(numbersCount, max: maxNumber, min: 1)
+        for section in 1...2 {
+            tableView.cellForRow(at: IndexPath(row: 0, section: section))?.textLabel?.alpha = 0.5
+        }
+        
+        activityIndicator?.startAnimating()
+        
+        randomNumbers = RandomNumberGenerator.generate(numbersCount, max: maxNumber, min: 1)
         currentNumberIndex = -1
-        carousel.reloadData()
+        carousel?.reloadData()
         
         visualizeGeneration()
     }
     
-    func copyNumbers() {
+    @objc private func copyNumbers() {
         let pasteboard = UIPasteboard.general
-        pasteboard.string = numbersText()
+        pasteboard.string = numbersText
     }
     
-    func showInfo() {
+    @objc private func showInfo() {
         let storyboard = UIStoryboard(name: "Main", bundle: nil)
-        let vc = storyboard.instantiateViewController(withIdentifier: "AboutViewController") as UIViewController
+        let viewController = storyboard.instantiateViewController(withIdentifier: "AboutViewController")
         
-        vc.title = NSLocalizedString("About", comment: "")
+        viewController.title = NSLocalizedString("About", comment: "")
         let barButtonItem = UIBarButtonItem(barButtonSystemItem: .done, target: self, action: #selector(RootViewController.dismissInfo))
-        barButtonItem.tintColor = UIColor.brandLightColor()
-        vc.navigationItem.rightBarButtonItem = barButtonItem
+        barButtonItem.tintColor = .brandLightColor
+        viewController.navigationItem.rightBarButtonItem = barButtonItem
         
-        let nc = UINavigationController(rootViewController: vc)
-        nc.navigationBar.barStyle = .black 
-        nc.navigationBar.barTintColor = UIColor.brandDarkColor()
+        let navigationController = UINavigationController(rootViewController: viewController)
+        navigationController.navigationBar.barStyle = .black
+        navigationController.navigationBar.barTintColor = .brandDarkColor
         
-        nc.modalTransitionStyle = .flipHorizontal
-        present(nc, animated: true, completion: nil)
+        navigationController.modalTransitionStyle = .flipHorizontal
+        present(navigationController, animated: true, completion: nil)
     }
     
-    func dismissInfo() {
+    @objc private func dismissInfo() {
         dismiss(animated: true, completion: nil)
     }
-}
 
-// MARK: Implementation
-
-extension RootViewController {
-    func numbersText() -> String {
+    // MARK: Implementation
+    
+    private var numbersText: String {
         var text = ""
         
-        for i in 0...Int(numbersCount) - 1 {
+        for i in 0...numbersCount - 1 {
             if currentNumberIndex < 0 || i > currentNumberIndex {
                 text += "—"
             } else {
@@ -269,12 +245,17 @@ extension RootViewController {
         return text
     }
     
-    func visualizeGeneration() {
-        numbersLabel.text = numbersText()
+    @objc private func visualizeGeneration() {
+        numbersLabel?.text = numbersText
         
         if (currentNumberIndex == numbersCount - 1) {
             tableView.isUserInteractionEnabled = true // Renable interactions
-            activityIndicator.stopAnimating()
+            
+            for section in 1...2 {
+                tableView.cellForRow(at: IndexPath(row: 0, section: section))?.textLabel?.alpha = 1
+            }
+            
+            activityIndicator?.stopAnimating()
             return
         }
         
@@ -287,7 +268,7 @@ extension RootViewController {
                                   repeats: false)
     }
     
-    func showNumber() {
+    @objc private func showNumber() {
         let number = randomNumbers[currentNumberIndex]
         var difference = abs(currentNumber - number)
         if currentNumber == 0 {
@@ -296,6 +277,6 @@ extension RootViewController {
         
         let duration = animationDuration * TimeInterval(difference)
         currentNumber = number
-        carousel.scrollToItem(at: currentNumber - 1, duration: duration)
+        carousel?.scrollToItem(at: currentNumber - 1, duration: duration)
     }
 }

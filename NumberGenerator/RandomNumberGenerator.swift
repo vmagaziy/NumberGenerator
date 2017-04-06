@@ -1,9 +1,7 @@
-// Created by Volodymyr Magazii <vmagaziy@gmail.com>
-
 import Foundation
 
 class RandomNumberGenerator {
-    class func generateWithCount(_ count: Int, max: Int = Int.max, min: Int = 0, allowDuplicates: Bool = false) -> [Int] {
+    class func generate(_ count: Int, max: Int = Int.max, min: Int = 0, allowDuplicates: Bool = false) -> [Int] {
         assert(count > 0 && max > min, "Invalid parameters")
         assert(allowDuplicates || count < max - min, "Invalid parameters")
         var numbers: [Int] = []

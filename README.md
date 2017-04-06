@@ -4,7 +4,7 @@ Small application for iOS which allows to generate random numbers
 
 ## Environment and Coding Considerations
 
-* Xcode 8.1 running on OS X 10.12.1 is used as a developer environment
+* Xcode 8.2 running on OS X 10.12.4 is used as a developer environment
 * Cocoa Pods v1.0.0 gem installed
 * Application is not specifically tailored to iPad specifics and can be run on iOS 9 or higher
 * Code is written using Swift
@@ -20,7 +20,7 @@ Only [small](http://googletesting.blogspot.co.uk/2010/12/test-sizes.html) or uni
 
 ## Additional Notes
 
-* Appearance of application may be easily changed by tweaking so called brand colours
+* Appearance of application may be easily changed by tweaking brand colours
 * Style of carousel for numbers can also be easily changed by using different [iCarousel types](https://github.com/nicklockwood/iCarousel)
 * Number of generated numbers and their range can be changed easily as well
 
@@ -28,3 +28,4 @@ Only [small](http://googletesting.blogspot.co.uk/2010/12/test-sizes.html) or uni
 
 * Application icon is to be designed
 * Test cases are to be extended
+* Implemenation of generator for random numbers is to be improved
